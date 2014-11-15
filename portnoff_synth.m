@@ -17,8 +17,9 @@ rright = (floor(n/R) + Q);
 if (rright >= size(sn)(2))
     rright = size(sn)(2) - 1;
 endif
-r = [rleft:rleft] + 1; % add 1 for MATLAB indexing
-nrR = -R * r + n;
+r = [rleft:rright] + 1; % add 1 for MATLAB indexing
+nrR = -R * r + n + (length(f) - 1) / 2;
 snr = sn(mod(n,N) + 1,r); % add 1 for MATLAB indexing
-fnrR = f(nrN);
-xn = snr * fnrR;
+fnrR = get_inf_signal_vals(f,nrR);
+xn = snr * fnrR.';
+endfunction
